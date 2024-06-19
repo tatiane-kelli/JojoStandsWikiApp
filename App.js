@@ -1,11 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useFonts } from 'expo-font';
+import StandList from './src/components/StandsList';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'Bangers-Regular': require('./assets/fonts/Bangers-Regular.ttf'),
+    'RobotoCondensed-SemiBold': require('./assets/fonts/RobotoCondensed-SemiBold.ttf'),
+    'RobotoCondensed-Regular': require('./assets/fonts/RobotoCondensed-Regular.ttf'),
+  });
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <StandList />
     </View>
   );
 }
@@ -14,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 50,
   },
 });
